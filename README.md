@@ -191,7 +191,7 @@ Compra 3 aprovada. Saldo restante: 400
 Compra 4 negada. Saldo insuficiente e limite de crédito excedido.
 
 
-D)
+<s>D)
 
 Compra 1 aprovada. Saldo restante: 800
 
@@ -201,7 +201,9 @@ Compra 3 aprovada com limite de crédito. Saldo restante: 200
 
 Compra 4 negada. Saldo insuficiente e limite de crédito excedido.
 
-Compra 5 negada. Saldo insuficiente e limite de crédito excedido.
+Compra 5 negada. Saldo insuficiente e limite de crédito excedido.</s>
+
+**Resposta: d)**
 
 ______
 
@@ -211,11 +213,13 @@ Escolha a opção que responde corretamente:
 
 A) Setup -> Update -> Draw
 
-B) Preload -> Create -> Update
+<s>B) Preload -> Create -> Update</s>
 
 C) Load -> Initialize -> Render
 
 D) Begin -> Play -> End
+
+**Resposta: b)**
 ______
 
 **6)** Qual é o objetivo principal do módulo Arcade Physics em Phaser.js?
@@ -224,7 +228,7 @@ Escolha a opção que responde corretamente:
 
 A) Renderizar gráficos 3D para jogos em HTML5.
 
-B) Simular interações físicas realistas, como colisões e movimentos, em jogos 2D.
+<s>B) Simular interações físicas realistas, como colisões e movimentos, em jogos 2D.</s>
 
 C) Criar efeitos de áudio para melhorar a experiência do usuário em jogos.
 
@@ -236,6 +240,27 @@ ______
 
 **7)** Implemente o pseudocódigo para o algoritmo representado no fluxograma da imagem.
 ![Uma imagem](assets/image.png)
+
+**Resposta:**
+
+Algoritmo "Fluxograma"
+
+variavel idade
+
+inicio
+
+idade recebe valor preenchido num campo de formulário
+
+se a idade for menor que 16:
+    imprimir(Não pode votar!)
+senão se a idade for maior ou igual a 16 e menor que 18
+    imprimir(voto facultativo)
+senão
+    imprimir(voto facultativo) 
+fimsenão
+
+fimalgoritmo
+
 ______
 
 **8)** Considere a implementação da classe base FormaGeometrica em um sistema de modelagem de formas geométricas. Sua tarefa é implementar, utilizando pseudocódigo, as classes derivadas Retangulo e Circulo, que herdam da classe FormaGeometrica, adicionando atributos específicos e métodos para calcular a área de um retângulo e de um círculo, respectivamente.
@@ -257,7 +282,10 @@ ______
 
 **9)** Você foi contratado(a) como estagiário(a) da Tesla e está participando do desenvolvimento de um programa para simular o desempenho de um carro elétrico em uma corrida. Seu objetivo é determinar em quantos minutos o carro levará para completar uma determinada distância, levando em consideração uma velocidade inicial e uma taxa de aceleração constante. No entanto, você deseja garantir que o carro não exceda uma velocidade máxima nem que a corrida demore mais do que um tempo máximo. Implemente a lógica dessa simulação em pseudocódigo.
 
-
+Considere a fórumla de atualização velocidade:
+```
+    velocidade = velocidadeInicial + aceleracao*tempo
+```
 
 ______
 
