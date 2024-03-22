@@ -345,13 +345,37 @@ fimalgoritmo
 Considere a fórumla de atualização velocidade:
 
 ```
-var distancia = 5 // km
-var tempo_maximo = 10 // minutos
-var tempo_percorridp = 0 // minutos
-var velocidade_maxima = 180 // km/h
-var velocidade_inicial = 0 // km/h
+Algoritmo Simulador_Carro_Elétrico
+    // Entradas
+    velocidade_inicial = Ler_Velocidade_Inicial()
+    taxa_aceleracao = Ler_Taxa_Aceleracao()
+    distancia = Ler_Distancia()
+    velocidade_maxima = Ler_Velocidade_Maxima()
+    tempo_maximo = Ler_Tempo_Maximo()
 
-    velocidade = velocidade_inicial + aceleracao*tempo
+    // Variáveis
+    velocidade_atual = velocidade_inicial
+    tempo = 0
+    distancia_percorrida = 0
+
+    Enquanto (distancia_percorrida < distancia) E (tempo <= tempo_maximo) E (velocidade_atual < velocidade_maxima) faça
+        // Calcular nova velocidade e distância percorrida
+        velocidade_atual = velocidade_atual + taxa_aceleracao * tempo
+        distancia_percorrida = distancia_percorrida + velocidade_atual * tempo
+        tempo = tempo + 1 // Incrementar tempo em minutos
+    Fim Enquanto
+
+    Se (distancia_percorrida >= distancia) Então
+        Escrever "O carro completou a corrida em ", tempo, " minutos."
+    Senão
+        Se (tempo > tempo_maximo) Então
+            Escrever "O carro não completou a corrida dentro do tempo máximo permitido."
+        Senão
+            Escrever "O carro atingiu a velocidade máxima permitida."
+        Fim Se
+    Fim Se
+
+FimAlgoritmo
 ```
 
 ---
@@ -382,4 +406,39 @@ matrizB <- [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
 matrizSoma <- SomaDeMatrizes(matrizA, matrizB)
 Escrever("Soma das matrizes:")
 ImprimirMatriz(matrizSoma)
+```
+
+```
+Algoritmo Multiplicacao_de_matrizes
+
+Função MultiplicaçãoDeMatrizes(matrizA, matrizB):
+    # Verifica se o número de colunas em matrizA é igual ao número de linhas em matrizB
+    Se tamanho(matrizA[0]) ≠ tamanho(matrizB) então:
+        Retornar "As matrizes não podem ser multiplicadas. Dimensões incompatíveis."
+    Senão:
+        linhasA <- tamanho(matrizA)
+        colunasA <- tamanho(matrizA[0])
+        colunasB <- tamanho(matrizB[0])
+        matrizResultado <- novaMatriz(linhasA, colunasB)
+
+        # Loop para percorrer cada elemento da matriz resultado
+        Para i de 0 até linhasA-1 faça:
+            Para j de 0 até colunasB-1 faça:
+                # Inicializa o elemento da matriz resultado como 0
+                matrizResultado[i][j] <- 0
+                Para k de 0 até colunasA-1 faça:
+                    # Calcula o produto da linha i de matrizA com a coluna j de matrizB
+                    matrizResultado[i][j] <- matrizResultado[i][j] + (matrizA[i][k] * matrizB[k][j])
+
+        Retornar matrizResultado
+
+# Exemplo de uso da função
+matrizA <- [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+matrizB <- [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
+
+matrizProduto <- MultiplicaçãoDeMatrizes(matrizA, matrizB)
+Escrever("Produto das matrizes:")
+ImprimirMatriz(matrizProduto)
+
+fimalgoritimo
 ```
