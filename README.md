@@ -6,12 +6,12 @@
 
 ```javascript
 //EX01
-let x = 17
-let y = 5
-let z = 8
+let x = 17;
+let y = 5;
+let z = 8;
 
-resultadoBooleano =  (x < y) && (z > x) || (x - y > z)
-console.log(resultadoBooleano)
+resultadoBooleano = (x < y && z > x) || x - y > z;
+console.log(resultadoBooleano);
 
 const listaDeNumeros = [1, 2, 3, 4, 5];
 let soma = 0;
@@ -21,8 +21,8 @@ for (let i = 0; i < listaDeNumeros.length; i++) {
 }
 
 console.log("A soma dos números é:", soma);
-
 ```
+
 Qual das seguintes alternativas melhor descreve o que o código faz?
 
 A) O código avalia a expressão booleana, imprime o resultado `false`, calcula a soma dos números de 1 a 5 e imprime o resultado no console.
@@ -35,56 +35,54 @@ D) O código avalia a expressão booleana, imprime o resultado `false` e ordena 
 
 **Resposta: b)**
 
-______
+---
 
 **2)** Analise as funções calcularOrcamento() e calcularOrcamento2(). Num cenário em que a lista gastos fosse incializada como var gastos = [1800, 950, 620, 38] em ambas funções.
 
 ```javascript
 //Versão 1 da função que calcula orçamento
-function calculaOrcamento(){
+function calculaOrcamento() {
+  var gastos = [1800, 950, 620, 38];
+  var totalGastos = gastos[0];
+  var salario = 3500;
+  var saldo = 0;
+  var statusSaldo = "positivo";
+  var i = 1;
 
-    var gastos = [1800, 950, 620, 38];
-    var totalGastos = gastos[0];
-    var salario = 3500;
-    var saldo = 0; 
-    var statusSaldo =  'positivo';
-    var i = 1;
+  do {
+    totalGastos += gastos[i];
+    i++;
+  } while (salario >= totalGastos && i < gastos.length);
 
-    do{
-        totalGastos += gastos[i];
-        i++;
-    } while(salario >= totalGastos && i<gastos.length)
-    
-    saldo = salario - totalGastos;
+  saldo = salario - totalGastos;
 
-    if (saldo < 0 ){
-        statusSaldo = 'negativo';
-    } 
-    console.log (`Seu saldo é ${statusSaldo} de ${saldo}. `);
+  if (saldo < 0) {
+    statusSaldo = "negativo";
+  }
+  console.log(`Seu saldo é ${statusSaldo} de ${saldo}. `);
 }
 ```
 
 ```javascript
 //Versão 2 da função que calcula orçamento
-function calculaOrcamento2(){
+function calculaOrcamento2() {
+  var gastos = [1800, 950, 620, 38];
+  var totalGastos = gastos[0];
+  var salario = 3500;
+  var statusSaldo = "positivo";
+  var saldo = 0;
+  var i = 1;
 
-    var gastos = [1800, 950, 620, 38];
-    var totalGastos = gastos[0];
-    var salario = 3500;
-    var statusSaldo =  'positivo';
-    var saldo = 0;
-    var i = 1;
+  while (salario >= totalGastos && i < gastos.length) {
+    totalGastos += gastos[i];
+    i++;
+  }
 
-    while(salario >= totalGastos && i<gastos.length){
-        totalGastos += gastos[i];
-        i++;
-    }
-
-    saldo = salario - totalGastos;
-    if (saldo < 0 ){
-        statusSaldo = 'negativo';
-    } 
-    console.log (`Seu saldo é ${statusSaldo} de ${saldo}. `);
+  saldo = salario - totalGastos;
+  if (saldo < 0) {
+    statusSaldo = "negativo";
+  }
+  console.log(`Seu saldo é ${statusSaldo} de ${saldo}. `);
 }
 ```
 
@@ -100,9 +98,10 @@ D) As funções calcularOrcamento() e calcularOrcamento2() teriam a mesma saída
 
 **Resposta: b)**
 
-______
+---
 
 **3)** Considere o seguinte trecho de código em JavaScript:
+
 ```javascript
 //EX03
 const numero = 10;
@@ -116,8 +115,7 @@ if (numero % 2 === 0) {
 }
 ```
 
- Qual das seguintes alternativas é a descrição mais precisa do que o código faz?
-
+Qual das seguintes alternativas é a descrição mais precisa do que o código faz?
 
 A) O código verifica se o número é divisível por 3 e, se for, exibe a mensagem "O número é divisível por 3!".
 
@@ -127,12 +125,12 @@ C) O código verifica se o número é par, ímpar ou divisível por 3. Se for pa
 
 <s>D) O código verifica se o número é par, se é divisível por 3 ou se é ímpar. Se for par, exibe a mensagem "O número é par!". Se for divisível por 3 (e não for par), exibe a mensagem "O número é divisível por 3!". Se for ímpar (e não for divisível por 3), exibe a mensagem "O número é ímpar e não é divisível por 3!".</s>
 
-
 **Resposta: d)**
 
-______
+---
 
 **4)** Qual será o resultado impresso no console após a execução desse código?
+
 ```javascript
 //EX04
 var saldo = 1000;
@@ -140,18 +138,32 @@ var limiteCredito = 500;
 var valorCompras = [200, 800, 300, 400, 600];
 
 for (var i = 0; i < valorCompras.length; i++) {
-    var valorCompra = valorCompras[i];
+  var valorCompra = valorCompras[i];
 
-    if (valorCompra <= saldo) {
-        console.log("Compra " + (i+1) + " aprovada. Saldo restante: " + (saldo - valorCompra));
-        saldo -= valorCompra;
-    } else if (valorCompra <= saldo + limiteCredito) {
-        console.log("Compra " + (i+1) + " aprovada com limite de crédito. Saldo restante: " + ((saldo + limiteCredito) - valorCompra));
-        saldo = 0;
-        limiteCredito -= (valorCompra - saldo);
-    } else {
-        console.log("Compra " + (i+1) + " negada. Saldo insuficiente e limite de crédito excedido.");
-    }
+  if (valorCompra <= saldo) {
+    console.log(
+      "Compra " +
+        (i + 1) +
+        " aprovada. Saldo restante: " +
+        (saldo - valorCompra)
+    );
+    saldo -= valorCompra;
+  } else if (valorCompra <= saldo + limiteCredito) {
+    console.log(
+      "Compra " +
+        (i + 1) +
+        " aprovada com limite de crédito. Saldo restante: " +
+        (saldo + limiteCredito - valorCompra)
+    );
+    saldo = 0;
+    limiteCredito -= valorCompra - saldo;
+  } else {
+    console.log(
+      "Compra " +
+        (i + 1) +
+        " negada. Saldo insuficiente e limite de crédito excedido."
+    );
+  }
 }
 ```
 
@@ -168,7 +180,6 @@ Compra 4 aprovada com limite de crédito. Saldo restante: 0
 
 Compra 5 aprovada. Saldo restante: -200
 
-
 B)
 Compra 1 aprovada. Saldo restante: 800
 
@@ -180,7 +191,6 @@ Compra 4 negada. Saldo insuficiente e limite de crédito excedido.
 
 Compra 5 negada. Saldo insuficiente e limite de crédito excedido.
 
-
 C)
 Compra 1 aprovada. Saldo restante: 800
 
@@ -189,7 +199,6 @@ Compra 2 aprovada com limite de crédito. Saldo restante: 700
 Compra 3 aprovada. Saldo restante: 400
 
 Compra 4 negada. Saldo insuficiente e limite de crédito excedido.
-
 
 <s>D)
 
@@ -205,7 +214,7 @@ Compra 5 negada. Saldo insuficiente e limite de crédito excedido.</s>
 
 **Resposta: d)**
 
-______
+---
 
 **5)** Qual é o principal ciclo de vida de um jogo em Phaser.js?
 
@@ -220,7 +229,8 @@ C) Load -> Initialize -> Render
 D) Begin -> Play -> End
 
 **Resposta: b)**
-______
+
+---
 
 **6)** Qual é o objetivo principal do módulo Arcade Physics em Phaser.js?
 
@@ -234,7 +244,7 @@ C) Criar efeitos de áudio para melhorar a experiência do usuário em jogos.
 
 D) Gerenciar a lógica do jogo e a sincronização de eventos em jogos multiplayer.
 
-______
+---
 
 # Questões dissertativas
 
@@ -243,25 +253,27 @@ ______
 
 **Resposta:**
 
+```
 Algoritmo "Fluxograma"
 
-variavel idade
+var idade <- 0
 
 inicio
 
-idade recebe valor preenchido num campo de formulário
+leia idade
 
-se a idade for menor que 16:
-    imprimir(Não pode votar!)
-senão se a idade for maior ou igual a 16 e menor que 18
-    imprimir(voto facultativo)
-senão
-    imprimir(voto facultativo) 
-fimsenão
+se idade < 16:<br>
+    escreva("Não pode votar!")<br>
+senão se idade >= 16 e idade < 18:<br>
+    escreva("Voto facultativo")<br>
+senão:<br>
+    escreva("Voto obrigatório")<br>
+fimse
 
 fimalgoritmo
+```
 
-______
+---
 
 **8)** Considere a implementação da classe base FormaGeometrica em um sistema de modelagem de formas geométricas. Sua tarefa é implementar, utilizando pseudocódigo, as classes derivadas Retangulo e Circulo, que herdam da classe FormaGeometrica, adicionando atributos específicos e métodos para calcular a área de um retângulo e de um círculo, respectivamente.
 
@@ -278,16 +290,71 @@ Classe FormaGeometrica:
 
 ```
 
-______
+**Resposta:**
+
+```
+Algoritmo "Geometria"
+
+Classe Circulo extendido de FormaGeometrica:
+    Atributos:
+        - pi = 3.14
+
+    Método Construtor(cor):
+        chama o Construtor da classe pai com o parâmetro cor
+    fimmetodo
+
+    Método CalcularArea(raio):
+        retorna pi * raio * raio
+    fimmetodo
+fimclasse
+
+Classe Retangulo extendido de FormaGeometrica:
+    Atributos:
+        - base
+        - altura
+
+    Método Construtor(cor):
+        chama o Construtor da classe pai com o parâmetro cor
+    fimmetodo
+
+    Método CalcularArea(base, altura):
+        retorna base * altura
+    fimmetodo
+fimclasse
+
+// Criando uma instância da classe Circulo
+var circulo1 = novo Circulo("vermelho")
+var raio_circulo1 = 5
+var area_circulo1 = circulo1.CalcularArea(raio_circulo1)
+imprimir("Área do círculo:", area_circulo1)
+
+// Criando uma instância da classe Retangulo
+var retangulo1 = novo Retangulo("azul")
+var base_retangulo1 = 4
+var altura_retangulo1 = 6
+area_retangulo1 = retangulo1.CalcularArea(base_retangulo1, altura_retangulo1)
+imprimir("Área do retângulo:", area_retangulo1)
+
+fimalgoritmo
+```
+
+---
 
 **9)** Você foi contratado(a) como estagiário(a) da Tesla e está participando do desenvolvimento de um programa para simular o desempenho de um carro elétrico em uma corrida. Seu objetivo é determinar em quantos minutos o carro levará para completar uma determinada distância, levando em consideração uma velocidade inicial e uma taxa de aceleração constante. No entanto, você deseja garantir que o carro não exceda uma velocidade máxima nem que a corrida demore mais do que um tempo máximo. Implemente a lógica dessa simulação em pseudocódigo.
 
 Considere a fórumla de atualização velocidade:
+
 ```
-    velocidade = velocidadeInicial + aceleracao*tempo
+var distancia = 5 // km
+var tempo_maximo = 10 // minutos
+var tempo_percorridp = 0 // minutos
+var velocidade_maxima = 180 // km/h
+var velocidade_inicial = 0 // km/h
+
+    velocidade = velocidade_inicial + aceleracao*tempo
 ```
 
-______
+---
 
 **10)** Uma matriz é uma coleção bidimensional de elementos, organizados em linhas e colunas. A seguir, é fornecida a implementação da função SomaDeMatrizes(matrizA, matrizB), que calcula a soma de duas matrizes. Sua tarefa é implementar uma função semelhante, porém que realize a multiplicação de duas matrizes.
 
